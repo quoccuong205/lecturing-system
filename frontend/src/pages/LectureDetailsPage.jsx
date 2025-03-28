@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import ReactPlayer from 'react-player';
 import { getLectureById } from '../services/lectureService';
 import { useAuth } from '../context/AuthContext';
 import Box from '@mui/material/Box';
@@ -18,8 +17,11 @@ import Grid from '@mui/material/Grid';
 import Chip from '@mui/material/Chip';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import PersonIcon from '@mui/icons-material/Person';
+import RP from "react-player";
+
 
 export default function LectureDetailsPage() {
+  const ReactPlayer = RP.default ? RP.default : RP;
   const [lecture, setLecture] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
